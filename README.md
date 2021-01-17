@@ -11,7 +11,7 @@ import emptyBody200 from './index.js'
 const app = new Koa()
 
 const router = new Router()
-router.get('/200', () => {})
+router.get('/returns-200-not-404', () => {})
 
 app.use(emptyBody200(router))
 app.use(router)
