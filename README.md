@@ -5,7 +5,7 @@ Koa middleware which sets ctx.body = '' to return 200 instead of 404 for undefin
 ```
 import Koa from 'koa'
 import Router from 'koa-router'
-import emptyBody200 from './empty-body-200'
+import emptyBody200 from './index.js'
 
 const app = new Koa()
 
