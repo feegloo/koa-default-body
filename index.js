@@ -1,18 +1,28 @@
 // sets ctx.body = '' so you don't have to do it (to avoid 404)
-// routers - passed during initialization
 //
-// app.use(defaultBody(routers))
+// @param routers: Router || Array<Router> - passed during initialization
+//
+// TODO: refactor to (routers) => async (ctx, next) => {...}
+// and pass routers during initialization
 export default (routers) => async (ctx, next) => {
   await next()
 
   // TODO: Rambda
-  for (const r of routers) {
-    const paths = r.stack.map((i) => i.path)
+  for (const r of Array.isArray(routers) ? routers: [routers]) {
+    for (const stack of r.stack) {
+      const url = ctx.method === 'PATCH' ? ctx.url.replace(/\/[^\/]*$/, '') : ctx.url
 
-    if (paths.includes(ctx.url) && ctx.status === 404 && ctx.body === undefined) {
-      ctx.body = ''
-      ctx.status = 200
-      break
+      if (
+        stack.path.includes(url) &&
+        stack.methods.includes(ctx.method) &&
+        ctx.status === 404 &&
+        ctx.body === undefined
+      ) {
+        ctx.body = ''
+        ctx.status = 200
+
+        break
+      }
     }
   }
 }
