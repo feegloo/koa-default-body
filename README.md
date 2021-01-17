@@ -1,5 +1,5 @@
 # koa-default-body
-Koa middleware which sets `ctx.body = ''` to return HTTP 200 (instead of 404 for undefined body which Koa does)
+Koa middleware which sets `ctx.body = ''` to return HTTP 200 (for `undefined` body, Koa returns HTTP 404 Not Found)
 
 
 ```
