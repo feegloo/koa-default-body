@@ -1,9 +1,9 @@
 # koa-default-body
-Koa middleware which sets `ctx.body = ''` to return HTTP 200
+Koa middleware which sets `ctx.body = ''` to return `HTTP 200`
 
-If you leave `ctx.body` `undefined`, Koa returns by default `HTTP 404 Not Found`
+By default, if you leave `ctx.body` `undefined`, Koa returns by default `HTTP 404 Not Found` - this middleware sets `ctx.body = ''` and Koa will return `HTTP 200`
 
-If you set `ctx.body` or `ctx.status`, this middleware will use it (instead of setting `ctx.body = ''`)
+But if you set `ctx.body` or `ctx.status`, this middleware will use it (instead of setting `ctx.body = ''`)
 
 ### example
 
