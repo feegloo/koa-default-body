@@ -19,9 +19,9 @@ const router = new Router()
 
 router.post('/returns-200-not-404', () => {})
 
-router.get('/return-your-status-or-body`, ctx => {
+router.get('/return-your-status-or-body', ctx => {
   ctx.body = 'my body my choice'
-  ctx.status = 500
+  ctx.status = 403
 })
 
 app.use(koaDefaultBody(router))
