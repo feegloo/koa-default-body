@@ -1,0 +1,23 @@
+{
+  "name": "koa-default-body",
+  "version": "1.0.0",
+  "description": "200 for undefined body",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feegloo/koa-default-body.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware"
+  ],
+  "author": "Aleksander Figiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feegloo/koa-default-body/issues"
+  },
+  "homepage": "https://github.com/feegloo/koa-default-body#readme"
+}
