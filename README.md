@@ -12,7 +12,7 @@ But if you set `ctx.body` or `ctx.status`, this middleware will use it (instead 
 ```
 import Koa from 'koa'
 import Router from 'koa-router'
-import koaDefaultBody from 'koa-default-body'
+import defaultBody from 'koa-default-body'
 
 const app = new Koa()
 const router = new Router()
@@ -24,7 +24,7 @@ router.get('/return-your-status-or-body', ctx => {
   ctx.status = 403
 })
 
-app.use(koaDefaultBody(router))
+app.use(defaultBody(router))
 
 app.use(router)
 
