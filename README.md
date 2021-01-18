@@ -32,7 +32,7 @@ app.use(router2)
 
 ### purpose
 
-It's for reducing boilerplate `ctx.body = ''` at the end of route handler (function with ctx), for undefined routes response is still 404 ! (see below) 
+It's for reducing boilerplate `ctx.body = ''` at the end of route handler (function with ctx), for undefined routes response is still 404 !
 
-`ctx.body = ''` is set ONLY for registered routes(in below code `/200`). When requesting undefined route, like `/foo` - it will still return 404.
+  - `ctx.body = ''` is set ONLY for registered routes(in below code `/200`). When requesting undefined route, like `/foo` - it will still return 404.
 
