@@ -15,20 +15,18 @@ import Router from 'koa-router'
 import koaDefaultBody from 'koa-default-body'
 
 const app = new Koa()
-
 const router = new Router()
+
 router.post('/returns-200-not-404', () => {})
 
-const router2 = new Router()
-router2.get('/return-your-status-or-body`, ctx => {
+router.get('/return-your-status-or-body`, ctx => {
   ctx.body = 'my body my choice'
   ctx.status = 500
 })
 
-app.use(koaDefaultBody([router,router2])) // or app.use(koaDefaultBody(router))
+app.use(koaDefaultBody(router))
 
 app.use(router)
-app.use(router2)
 
 ```
 
