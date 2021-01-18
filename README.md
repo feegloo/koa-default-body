@@ -23,7 +23,7 @@ router2.get('/return-your-status-or-body`, ctx => {
   ctx.status = 500
 })
 
-app.use(koaDefaultBody([router1,router2]))
+app.use(koaDefaultBody([router,router2])) // or app.use(koaDefaultBody(router))
 
 app.use(router1)
 app.use(router2)
