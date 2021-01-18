@@ -1,20 +1,31 @@
 # koa-default-body
-Koa middleware which sets `ctx.body = ''` to return HTTP 200 (for `undefined` body, Koa returns by default `HTTP 404 Not Found`)
+Koa middleware which sets `ctx.body = ''` to return HTTP 200
+
+If you leave `ctx.body` `undefined`, Koa returns by default `HTTP 404 Not Found`
+If you set `ctx.body` or `ctx.status`, this middleware will use it (instead of setting `ctx.body = ''`)
 
 ### example
 
 ```
 import Koa from 'koa'
 import Router from 'koa-router'
-import emptyBody200 from './index.js'
+import koaDefaultBody from 'koa-default-body'
 
 const app = new Koa()
 
 const router = new Router()
-router.get('/returns-200-not-404', () => {})
+router.post('/returns-200-not-404', () => {})
 
-app.use(emptyBody200(router))
-app.use(router)
+const router2 = new Router()
+router2.get('/return-your-status-or-body`, ctx => {
+  ctx.body = 'my body my choice'
+  ctx.status = 500
+})
+
+app.use(koaDefaultBody([router1,router2]))
+
+app.use(router1)
+app.use(router2)
 
 ```
 
