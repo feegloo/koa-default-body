@@ -18,15 +18,15 @@ const app = new Koa()
 const router = new Router()
 
 router.post('/returns-200-not-404', () => {})
-
 router.get('/return-your-status-or-body', ctx => {
   ctx.body = 'my body my choice'
   ctx.status = 403
 })
 
 app.use(defaultBody(router))
+app.use(router.routes())
 
-app.use(router)
+app.listen(3000) // pass your port
 
 ```
 
