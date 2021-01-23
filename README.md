@@ -23,7 +23,7 @@ router.get('/return-your-status-or-body', ctx => {
   ctx.status = 403
 })
 
-app.use(defaultBody(router.routes()))
+app.use(defaultBody(router))
 app.use(router.routes())
 
 app.listen(3000) // pass your port
