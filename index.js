@@ -8,7 +8,7 @@ module.exports = routers => async (ctx, next) => {
     for (const stack of r.stack) {
       // TODO: more bullet-proof replacing url
       // use '/foo/:param1/:param2' of router and compare with actual ctx.url
-      const url = ctx.method === 'PATCH' ? ctx.url.replace(/\/[^\/]*$/, '') : ctx.url
+      const url = ['PATCH', 'DELETE'].includes(ctx.method) ? ctx.url.replace(/\/[^\/]*$/, '') : ctx.url
 
       if (
         stack.path.includes(url) &&
