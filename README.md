@@ -37,3 +37,6 @@ It's for reducing boilerplate `ctx.body = ''` at the end of route handler (funct
 
   - `ctx.body = ''` is set ONLY for routers registered with `app.use(router.routes())`. When requesting undefined route, like `/foo` - it will still return 404.
 
+### npm package
+
+https://www.npmjs.com/package/koa-default-body
